@@ -2,7 +2,8 @@
 
 function watchForm() {
     $('.js-dog-form').submit(event => {
-        event.preventDefault();     
+        event.preventDefault(); 
+        $('.dog-pic').remove();    
         getDogImage()
     });
 };
@@ -23,7 +24,7 @@ function displayResults(responseJson) {
     console.log(responseJson);
     for (let i = 0; i < responseJson.message.length; i++) {
         console.log(responseJson.message[i]);
-        $('#result').append(`<li><img src="${responseJson.message[i]}" alt="picture of dog"/></li>`);
+        $('#result').append(`<li><img src="${responseJson.message[i]}" alt="picture of dog" class="dog-pic"/></li>`);
     };
     $('#hidden-section').removeClass('hidden');
 };
